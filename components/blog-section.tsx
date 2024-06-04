@@ -49,9 +49,10 @@ export default function BlogSection(props: FeaturedBlogProps) {
         )}
         {fromBlog.view_articles && (
           (<Link
-            href={fromBlog.view_articles.href}
-            className='btn secondary-btn article-btn'
-            {...fromBlog.view_articles.$?.title}>
+          href={fromBlog.view_articles.href}
+          className='btn secondary-btn article-btn'
+          {...fromBlog.view_articles.$?.title}
+          >
 
             {fromBlog.view_articles.title}
 
@@ -75,7 +76,7 @@ export default function BlogSection(props: FeaturedBlogProps) {
                 <div>{parse(blog.body.slice(0, 300))}</div>
               )}
               {blog.url && (
-                <Link href={blog.url} passHref className='blogpost-readmore'>
+                <Link href={blog.url} passHref className='blogpost-readmore' >
                   {'Read More -->'}
                 </Link>
               )}

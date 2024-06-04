@@ -36,7 +36,7 @@ function BlogList({ bloglist }: { bloglist: BloglistProps }) {
   return (
     <div className='blog-list'>
       {bloglist.featured_image && (
-        (<Link href={bloglist.url}>
+        (<Link href={bloglist.url} >
 
           <img
             className='blog-list-img'
@@ -49,7 +49,7 @@ function BlogList({ bloglist }: { bloglist: BloglistProps }) {
       )}
       <div className='blog-content'>
         {bloglist.title && (
-          (<Link href={bloglist.url}>
+          (<Link href={bloglist.url} >
 
             <h3 {...bloglist.$?.title}>{bloglist.title}</h3>
 
@@ -66,7 +66,7 @@ function BlogList({ bloglist }: { bloglist: BloglistProps }) {
         </p>
         <div {...bloglist.$?.body as {}}>{parse(body)}</div>
         {bloglist.url ? (
-          (<Link href={bloglist.url}>
+          (<Link href={bloglist.url} >
 
             <span>{'Read more -->'}</span>
 

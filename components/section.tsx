@@ -33,9 +33,10 @@ export default function Section({ section }: {section : SectionProps}) {
         )}
         {section.call_to_action.title && section.call_to_action.href ? (
           (<Link
-            href={section.call_to_action.href}
-            className='btn secondary-btn'
-            {...section.call_to_action.$?.title}>
+          href={section.call_to_action.href}
+          className='btn secondary-btn'
+          {...section.call_to_action.$?.title}
+          >
 
             {section.call_to_action.title}
 
