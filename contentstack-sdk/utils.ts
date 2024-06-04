@@ -39,7 +39,7 @@ const setRegion = (): Region => {
   if (!!CONTENTSTACK_REGION && CONTENTSTACK_REGION !== "us") {
     region = CONTENTSTACK_REGION.toLocaleUpperCase().replace(
       "-",
-      "_"
+      "_",
     ) as keyof typeof Region;
   }
   return Region[region];
@@ -47,7 +47,9 @@ const setRegion = (): Region => {
 // set LivePreview config
 const setLivePreviewConfig = (): LivePreview => {
   if (!isLpConfigValid())
-    throw new Error("Your LP config is set to true. Please make you have set all required LP config in .env");
+    throw new Error(
+      "Your LP config is set to true. Please make you have set all required LP config in .env",
+    );
   return {
     preview_token: CONTENTSTACK_PREVIEW_TOKEN as string,
     enable: CONTENTSTACK_LIVE_PREVIEW === "true",
@@ -84,6 +86,6 @@ export const generateUrlBasedOnRegion = (): string[] => {
   });
 };
 // prod url validation for custom host
-export const isValidCustomHostUrl = (url=''): boolean => {
+export const isValidCustomHostUrl = (url = ""): boolean => {
   return url ? !generateUrlBasedOnRegion().includes(url) : false;
 };

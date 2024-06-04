@@ -1,13 +1,12 @@
-import { getAllEntries, getBlogListRes } from '../helper';
+import { getAllEntries, getBlogListRes } from "../helper";
 import { Context, Pages, PostPage } from "../typescript/pages";
 
 const Sitemap = () => {
   return null;
 };
 
-export const getServerSideProps = async ({ res }: {res: Context}) => {
-
-  const baseUrl = process.env.NEXT_PUBLIC_HOSTED_URL || 'http://localhost:3000';
+export const getServerSideProps = async ({ res }: { res: Context }) => {
+  const baseUrl = process.env.NEXT_PUBLIC_HOSTED_URL || "http://localhost:3000";
 
   let pages = await getAllEntries();
   let posts = await getBlogListRes();
@@ -29,11 +28,11 @@ export const getServerSideProps = async ({ res }: {res: Context}) => {
             </url>
           `;
         })
-        .join('')}
+        .join("")}
     </urlset>
   `;
 
-  res.setHeader('Content-Type', 'text/xml');
+  res.setHeader("Content-Type", "text/xml");
   res.write(sitemap);
   res.end();
 

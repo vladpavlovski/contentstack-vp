@@ -19,12 +19,7 @@ export default async function Header() {
       <div className="max-width header-div">
         <div className="wrapper-logo">
           {headerData ? (
-            <Link
-              href="/"
-              className="logo-tag"
-              title="Contentstack"
-              
-            >
+            <Link href="/" className="logo-tag" title="Contentstack">
               <img
                 className="logo"
                 src={headerData.logo.url}

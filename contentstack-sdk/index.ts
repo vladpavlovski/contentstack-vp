@@ -27,7 +27,7 @@ const envConfig = process.env.CONTENTSTACK_API_KEY
 
 let customHostBaseUrl = envConfig.CONTENTSTACK_API_HOST as string;
 
-customHostBaseUrl = customHostBaseUrl? customHostUrl(customHostBaseUrl): '';
+customHostBaseUrl = customHostBaseUrl ? customHostUrl(customHostBaseUrl) : "";
 
 // SDK initialization
 const Stack = initializeContentStackSdk();
@@ -41,10 +41,10 @@ if (!!customHostBaseUrl && isValidCustomHostUrl(customHostBaseUrl)) {
 ContentstackLivePreview.init({
   //@ts-ignore
   stackSdk: Stack,
-  clientUrlParams:{
+  clientUrlParams: {
     host: envConfig.CONTENTSTACK_APP_HOST,
   },
-  ssr:false,
+  ssr: false,
 })?.catch((err) => console.error(err));
 
 export const { onEntryChange } = ContentstackLivePreview;
@@ -84,7 +84,7 @@ export const getEntry = ({
         },
         (error) => {
           reject(error);
-        }
+        },
       );
   });
 };
@@ -122,7 +122,7 @@ export const getEntryByUrl = ({
       (error) => {
         console.error(error);
         reject(error);
-      }
+      },
     );
   });
 };

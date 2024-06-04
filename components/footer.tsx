@@ -20,7 +20,7 @@ export default async function Footer() {
       <div className="max-width footer-div">
         <div className="col-quarter">
           {footerData && footerData.logo ? (
-            <Link href="/" className="logo-tag" >
+            <Link href="/" className="logo-tag">
               <img
                 src={footerData.logo.url}
                 alt={footerData.title}
@@ -37,13 +37,8 @@ export default async function Footer() {
             <ul className="nav-ul">
               {footerData ? (
                 footerData.navigation.link.map((menu) => (
-                  <li
-                    className="footer-nav-li"
-                    key={menu.title}
-                  >
-                    <Link href={menu.href} >
-                      {menu.title}
-                    </Link>
+                  <li className="footer-nav-li" key={menu.title}>
+                    <Link href={menu.href}>{menu.title}</Link>
                   </li>
                 ))
               ) : (
@@ -62,10 +57,7 @@ export default async function Footer() {
                   key={social.link.title}
                 >
                   {social.icon && (
-                    <img
-                      src={social.icon.url}
-                      alt={social.link.title}
-                    />
+                    <img src={social.icon.url} alt={social.link.title} />
                   )}
                 </a>
               ))
@@ -76,9 +68,7 @@ export default async function Footer() {
         </div>
       </div>
       {footerData && typeof footerData.copyright === "string" ? (
-        <div className="copyright">
-          {parse(footerData.copyright)}
-        </div>
+        <div className="copyright">{parse(footerData.copyright)}</div>
       ) : (
         <div className="copyright">
           <Skeleton width={500} />

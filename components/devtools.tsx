@@ -1,23 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 
-const DynamicJsonViewer = dynamic(() => import('@textea/json-viewer').then((module) => ({ default: module.JsonViewer })), { ssr: false });
+const DynamicJsonViewer = dynamic(
+  () =>
+    import("@textea/json-viewer").then((module) => ({
+      default: module.JsonViewer,
+    })),
+  { ssr: false },
+);
 
 function filterObject(inputObject: any) {
   const unWantedProps = [
-    '_version',
-    'ACL',
-    '_owner',
-    '_in_progress',
-    'created_at',
-    'created_by',
-    'updated_at',
-    'updated_by',
-    'publish_details',
+    "_version",
+    "ACL",
+    "_owner",
+    "_in_progress",
+    "created_at",
+    "created_by",
+    "updated_at",
+    "updated_by",
+    "publish_details",
   ];
   for (const key in inputObject) {
     unWantedProps.includes(key) && delete inputObject[key];
-    if (typeof inputObject[key] !== 'object') {
+    if (typeof inputObject[key] !== "object") {
       continue;
     }
     inputObject[key] = filterObject(inputObject[key]);
@@ -65,7 +71,7 @@ const DevTools = ({ response }: any) => {
               onClick={(e) => copyObject(JSON.stringify(filteredJson))}
               aria-hidden="true"
             >
-                <img src="/copy.svg" alt="copy icon" />
+              <img src="/copy.svg" alt="copy icon" />
             </span>
             <button
               type="button"
@@ -84,12 +90,12 @@ const DevTools = ({ response }: any) => {
                     rootName="response"
                     displayDataTypes={false}
                     enableClipboard={false}
-                    style={{ color: '#C8501E' }}
+                    style={{ color: "#C8501E" }}
                   />
                 )}
               </pre>
             ) : (
-              ''
+              ""
             )}
           </div>
           <div className="modal-footer">

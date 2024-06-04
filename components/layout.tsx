@@ -1,9 +1,18 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import Header from './header';
-import Footer from './footer';
-import DevTools from './devtools';
-import { HeaderProps, FooterProps, PageProps, Posts, ChilderenProps, Entry, NavLinks, Links } from "../typescript/layout";
+"use client";
+import React, { useState, useEffect } from "react";
+import Header from "./header";
+import Footer from "./footer";
+import DevTools from "./devtools";
+import {
+  HeaderProps,
+  FooterProps,
+  PageProps,
+  Posts,
+  ChilderenProps,
+  Entry,
+  NavLinks,
+  Links,
+} from "../typescript/layout";
 
 export default function Layout({
   header,
@@ -13,8 +22,15 @@ export default function Layout({
   blogList,
   entries,
   children,
-}: { header: HeaderProps, footer: FooterProps, page: PageProps, blogPost: Posts, blogList: Posts, entries: Entry, children: ChilderenProps }) {
-
+}: {
+  header: HeaderProps;
+  footer: FooterProps;
+  page: PageProps;
+  blogPost: Posts;
+  blogList: Posts;
+  entries: Entry;
+  children: ChilderenProps;
+}) {
   const [getLayout, setLayout] = useState({ header, footer });
   const jsonObj: any = { header, footer };
   page && (jsonObj.page = page);
@@ -27,7 +43,7 @@ export default function Layout({
     if (ent.length !== newHeader.navigation_menu.length) {
       ent.forEach((entry) => {
         const hFound = newHeader?.navigation_menu.find(
-          (navLink: NavLinks) => navLink.label === entry.title
+          (navLink: NavLinks) => navLink.label === entry.title,
         );
         if (!hFound) {
           newHeader.navigation_menu?.push({
@@ -39,7 +55,7 @@ export default function Layout({
           });
         }
         const fFound = newFooter?.navigation.link.find(
-          (nlink: Links) => nlink.title === entry.title
+          (nlink: Links) => nlink.title === entry.title,
         );
         if (!fFound) {
           newFooter.navigation.link?.push({
@@ -62,14 +78,14 @@ export default function Layout({
 
   return (
     <>
-      {header ? <Header header={getLayout.header} entries={entries} /> : ''}
-      <main className='mainClass'>
+      {header ? <Header header={getLayout.header} entries={entries} /> : ""}
+      <main className="mainClass">
         <>
-        {children}
-        {Object.keys(jsonObj).length && <DevTools response={jsonObj} />}
+          {children}
+          {Object.keys(jsonObj).length && <DevTools response={jsonObj} />}
         </>
       </main>
-      {footer ? <Footer footer={getLayout.footer} entries={entries} /> : ''}
+      {footer ? <Footer footer={getLayout.footer} entries={entries} /> : ""}
     </>
   );
 }
