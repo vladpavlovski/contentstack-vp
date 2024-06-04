@@ -1,11 +1,8 @@
 import React from 'react'
-
 import Section from './section'
 import HeroBanner from './hero-banner'
-import BlogBanner from './blog-banner'
 import CardSection from './card-section'
 import TeamSection from './team-section'
-import BlogSection from './blog-section'
 import SectionBucket from './section-bucket'
 import AboutSectionBucket from './about-section-bucket'
 import SectionWithHtmlCode from './section-with-html-code'
@@ -21,12 +18,7 @@ export default function RenderComponents(props: RenderProps) {
     >
       {pageComponents?.map((component, key: number) => {
         if (component.hero_banner) {
-          return blogPost ? (
-            <BlogBanner
-              blogBanner={component.hero_banner}
-              key={`component-${key}`}
-            />
-          ) : (
+          return blogPost ? null : (
             <HeroBanner
               banner={component.hero_banner}
               key={`component-${key}`}
@@ -52,12 +44,7 @@ export default function RenderComponents(props: RenderProps) {
           )
         }
         if (component.from_blog) {
-          return (
-            <BlogSection
-              fromBlog={component.from_blog}
-              key={`component-${key}`}
-            />
-          )
+          return null
         }
         if (component.section_with_cards) {
           return (
