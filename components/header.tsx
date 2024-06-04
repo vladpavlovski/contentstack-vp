@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getHeaderRes } from '../helper'
 import Skeleton from 'react-loading-skeleton'
 
+
 async function fetchData() {
   try {
     const headerRes = await getHeaderRes()
@@ -36,6 +37,7 @@ export default async function Header() {
           <span className='navicon' />
         </label>
         <nav className='menu'>
+
           <ul className='nav-ul header-ul'>
             {headerData ? (
               headerData.navigation_menu.map((list) => {

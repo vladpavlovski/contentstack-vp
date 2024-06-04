@@ -1,7 +1,6 @@
 import { getPageRes } from '../helper'
 import Skeleton from 'react-loading-skeleton'
-import RenderComponents from '../components/render-components'
-import { onEntryChange } from '../contentstack-sdk'
+import RenderComponents from '@/components/render-components'
 
 async function fetchData() {
   try {
@@ -15,11 +14,6 @@ async function fetchData() {
 
 export default async function Page() {
   const entry = await fetchData()
-  // console.log({entry})
-
-  // useEffect(() => {
-  //   onEntryChange(() => fetchData());
-  // }, []);
 
   return entry ? (
     <RenderComponents

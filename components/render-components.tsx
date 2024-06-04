@@ -1,11 +1,11 @@
 import React from 'react'
-import Section from './section'
-import HeroBanner from './hero-banner'
-import CardSection from './card-section'
-import TeamSection from './team-section'
-import SectionBucket from './section-bucket'
-import AboutSectionBucket from './about-section-bucket'
-import SectionWithHtmlCode from './section-with-html-code'
+import Section from '@/components/section'
+import HeroBanner from '@/components/hero-banner'
+import CardSection from '@/components/card-section'
+import TeamSection from '@/components/team-section'
+import SectionBucket from '@/components/section-bucket'
+import AboutSectionBucket from '@/components/about-section-bucket'
+import SectionWithHtmlCode from '@/components/section-with-html-code'
 import { RenderProps } from '../typescript/component'
 
 export default function RenderComponents(props: RenderProps) {

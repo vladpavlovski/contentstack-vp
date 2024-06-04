@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '../components/header'
-import Footer from '../components/footer'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 import '../styles/style.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
