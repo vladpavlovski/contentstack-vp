@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import parse from 'html-react-parser'
 import Link from 'next/link'
 import { Image } from '../typescript/action'
@@ -51,10 +50,7 @@ function BlogList({ bloglist }: { bloglist: BloglistProps }) {
           </Link>
         )}
         <p>
-          <strong {...(bloglist.$?.date as {})}>
-            {moment(bloglist.date).format('ddd, MMM D YYYY')}
-          </strong>
-          ,{' '}
+          <strong {...(bloglist.$?.date as {})}>{bloglist.date}</strong>,{' '}
           <strong {...bloglist.author[0].$?.title}>
             {bloglist.author[0].title}
           </strong>
