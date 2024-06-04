@@ -1,40 +1,40 @@
-import * as Utils from "@contentstack/utils";
-import ContentstackLivePreview from "@contentstack/live-preview-utils";
-import getConfig from "next/config";
+import * as Utils from '@contentstack/utils'
+import ContentstackLivePreview from '@contentstack/live-preview-utils'
+import getConfig from 'next/config'
 import {
   customHostUrl,
   initializeContentStackSdk,
   isValidCustomHostUrl,
-} from "./utils";
+} from './utils'
 
 type GetEntry = {
-  contentTypeUid: string;
-  referenceFieldPath: string[] | undefined;
-  jsonRtePath: string[] | undefined;
-};
+  contentTypeUid: string
+  referenceFieldPath: string[] | undefined
+  jsonRtePath: string[] | undefined
+}
 
 type GetEntryByUrl = {
-  entryUrl: string | undefined;
-  contentTypeUid: string;
-  referenceFieldPath: string[] | undefined;
-  jsonRtePath: string[] | undefined;
-};
+  entryUrl: string | undefined
+  contentTypeUid: string
+  referenceFieldPath: string[] | undefined
+  jsonRtePath: string[] | undefined
+}
 
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 const envConfig = process.env.CONTENTSTACK_API_KEY
   ? process.env
-  : publicRuntimeConfig;
+  : publicRuntimeConfig
 
-let customHostBaseUrl = envConfig.CONTENTSTACK_API_HOST as string;
+let customHostBaseUrl = envConfig.CONTENTSTACK_API_HOST as string
 
-customHostBaseUrl = customHostBaseUrl ? customHostUrl(customHostBaseUrl) : "";
+customHostBaseUrl = customHostBaseUrl ? customHostUrl(customHostBaseUrl) : ''
 
 // SDK initialization
-const Stack = initializeContentStackSdk();
+const Stack = initializeContentStackSdk()
 
 // set host url only for custom host or non prod base url's
 if (!!customHostBaseUrl && isValidCustomHostUrl(customHostBaseUrl)) {
-  Stack.setHost(customHostBaseUrl);
+  Stack.setHost(customHostBaseUrl)
 }
 
 // Setting LP if enabled
@@ -45,13 +45,13 @@ ContentstackLivePreview.init({
     host: envConfig.CONTENTSTACK_APP_HOST,
   },
   ssr: false,
-})?.catch((err) => console.error(err));
+})?.catch((err) => console.error(err))
 
-export const { onEntryChange } = ContentstackLivePreview;
+export const { onEntryChange } = ContentstackLivePreview
 
 const renderOption = {
   span: (node: any, next: any) => next(node.children),
-};
+}
 
 /**
  *
@@ -67,8 +67,8 @@ export const getEntry = ({
   jsonRtePath,
 }: GetEntry) => {
   return new Promise((resolve, reject) => {
-    const query = Stack.ContentType(contentTypeUid).Query();
-    if (referenceFieldPath) query.includeReference(referenceFieldPath);
+    const query = Stack.ContentType(contentTypeUid).Query()
+    if (referenceFieldPath) query.includeReference(referenceFieldPath)
     query
       .toJSON()
       .find()
@@ -79,15 +79,15 @@ export const getEntry = ({
               entry: result,
               paths: jsonRtePath,
               renderOption,
-            });
-          resolve(result);
+            })
+          resolve(result)
         },
         (error) => {
-          reject(error);
-        },
-      );
-  });
-};
+          reject(error)
+        }
+      )
+  })
+}
 
 /**
  *fetches specific entry from a content-type
@@ -105,10 +105,10 @@ export const getEntryByUrl = ({
   jsonRtePath,
 }: GetEntryByUrl) => {
   return new Promise((resolve, reject) => {
-    const blogQuery = Stack.ContentType(contentTypeUid).Query();
-    if (referenceFieldPath) blogQuery.includeReference(referenceFieldPath);
-    blogQuery.toJSON();
-    const data = blogQuery.where("url", `${entryUrl}`).find();
+    const blogQuery = Stack.ContentType(contentTypeUid).Query()
+    if (referenceFieldPath) blogQuery.includeReference(referenceFieldPath)
+    blogQuery.toJSON()
+    const data = blogQuery.where('url', `${entryUrl}`).find()
     data.then(
       (result) => {
         jsonRtePath &&
@@ -116,13 +116,13 @@ export const getEntryByUrl = ({
             entry: result,
             paths: jsonRtePath,
             renderOption,
-          });
-        resolve(result[0]);
+          })
+        resolve(result[0])
       },
       (error) => {
-        console.error(error);
-        reject(error);
-      },
-    );
-  });
-};
+        console.error(error)
+        reject(error)
+      }
+    )
+  })
+}

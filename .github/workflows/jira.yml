@@ -25,7 +25,7 @@ jobs:
           description: |
             PR: ${{ github.event.pull_request.html_url }}
 
-          fields: "${{ secrets.JIRA_FIELDS }}"
+          fields: '${{ secrets.JIRA_FIELDS }}'
       - name: Transition issue
         uses: atlassian/gajira-transition@v3
         with:

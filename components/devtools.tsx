@@ -1,108 +1,108 @@
-import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import React, { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 const DynamicJsonViewer = dynamic(
   () =>
-    import("@textea/json-viewer").then((module) => ({
+    import('@textea/json-viewer').then((module) => ({
       default: module.JsonViewer,
     })),
-  { ssr: false },
-);
+  { ssr: false }
+)
 
 function filterObject(inputObject: any) {
   const unWantedProps = [
-    "_version",
-    "ACL",
-    "_owner",
-    "_in_progress",
-    "created_at",
-    "created_by",
-    "updated_at",
-    "updated_by",
-    "publish_details",
-  ];
+    '_version',
+    'ACL',
+    '_owner',
+    '_in_progress',
+    'created_at',
+    'created_by',
+    'updated_at',
+    'updated_by',
+    'publish_details',
+  ]
   for (const key in inputObject) {
-    unWantedProps.includes(key) && delete inputObject[key];
-    if (typeof inputObject[key] !== "object") {
-      continue;
+    unWantedProps.includes(key) && delete inputObject[key]
+    if (typeof inputObject[key] !== 'object') {
+      continue
     }
-    inputObject[key] = filterObject(inputObject[key]);
+    inputObject[key] = filterObject(inputObject[key])
   }
-  return inputObject;
+  return inputObject
 }
 
 const DevTools = ({ response }: any) => {
-  const filteredJson = filterObject(response);
-  const [forceUpdate, setForceUpdate] = useState(0);
+  const filteredJson = filterObject(response)
+  const [forceUpdate, setForceUpdate] = useState(0)
 
   function copyObject(object: any) {
-    navigator.clipboard.writeText(object);
-    setForceUpdate(1);
+    navigator.clipboard.writeText(object)
+    setForceUpdate(1)
   }
 
   useEffect(() => {
     if (forceUpdate !== 0) {
-      setTimeout(() => setForceUpdate(0), 300);
+      setTimeout(() => setForceUpdate(0), 300)
     }
-  }, [forceUpdate]);
+  }, [forceUpdate])
 
   return (
     <div
-      className="modal fade"
-      id="staticBackdrop"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
+      className='modal fade'
+      id='staticBackdrop'
+      data-bs-backdrop='static'
+      data-bs-keyboard='false'
       tabIndex={-1}
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-      role="dialog"
+      aria-labelledby='staticBackdropLabel'
+      aria-hidden='true'
+      role='dialog'
     >
       <div
-        className="modal-dialog .modal-lg modal-dialog-centered modal-dialog-scrollable"
-        role="document"
+        className='modal-dialog .modal-lg modal-dialog-centered modal-dialog-scrollable'
+        role='document'
       >
-        <div className="modal-content">
-          <div className="modal-header">
-            <h2 className="devtools-modal-title" id="staticBackdropLabel">
+        <div className='modal-content'>
+          <div className='modal-header'>
+            <h2 className='devtools-modal-title' id='staticBackdropLabel'>
               JSON Preview
             </h2>
             <span
-              className="json-copy"
+              className='json-copy'
               onClick={(e) => copyObject(JSON.stringify(filteredJson))}
-              aria-hidden="true"
+              aria-hidden='true'
             >
-              <img src="/copy.svg" alt="copy icon" />
+              <img src='/copy.svg' alt='copy icon' />
             </span>
             <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
+              type='button'
+              className='btn-close'
+              data-bs-dismiss='modal'
+              aria-label='Close'
             />
           </div>
-          <div className="modal-body">
+          <div className='modal-body'>
             {response ? (
-              <pre id="jsonViewer">
+              <pre id='jsonViewer'>
                 {response && (
                   <DynamicJsonViewer
                     value={filteredJson}
                     defaultInspectDepth={1}
-                    rootName="response"
+                    rootName='response'
                     displayDataTypes={false}
                     enableClipboard={false}
-                    style={{ color: "#C8501E" }}
+                    style={{ color: '#C8501E' }}
                   />
                 )}
               </pre>
             ) : (
-              ""
+              ''
             )}
           </div>
-          <div className="modal-footer">
+          <div className='modal-footer'>
             <button
-              type="button"
-              className="btn tertiary-btn modal-btn"
-              data-bs-dismiss="modal"
+              type='button'
+              className='btn tertiary-btn modal-btn'
+              data-bs-dismiss='modal'
             >
               Close
             </button>
@@ -110,6 +110,6 @@ const DevTools = ({ response }: any) => {
         </div>
       </div>
     </div>
-  );
-};
-export default DevTools;
+  )
+}
+export default DevTools

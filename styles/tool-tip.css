@@ -31,7 +31,7 @@
 
 /* CSS border triangles */
 .Tooltip-Tip::before {
-  content: " ";
+  content: ' ';
   left: 50%;
   border: solid transparent;
   height: 0;

@@ -1,43 +1,43 @@
-import Link from "next/link";
-import parse from "html-react-parser";
-import { getFooterRes } from "../helper";
-import Skeleton from "react-loading-skeleton";
+import Link from 'next/link'
+import parse from 'html-react-parser'
+import { getFooterRes } from '../helper'
+import Skeleton from 'react-loading-skeleton'
 
 async function fetchData() {
   try {
-    const footerRes = await getFooterRes();
-    return footerRes;
+    const footerRes = await getFooterRes()
+    return footerRes
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
 export default async function Footer() {
-  const footerData = await fetchData();
+  const footerData = await fetchData()
 
   return (
     <footer>
-      <div className="max-width footer-div">
-        <div className="col-quarter">
+      <div className='max-width footer-div'>
+        <div className='col-quarter'>
           {footerData && footerData.logo ? (
-            <Link href="/" className="logo-tag">
+            <Link href='/' className='logo-tag'>
               <img
                 src={footerData.logo.url}
                 alt={footerData.title}
                 title={footerData.title}
-                className="logo footer-logo"
+                className='logo footer-logo'
               />
             </Link>
           ) : (
             <Skeleton width={150} />
           )}
         </div>
-        <div className="col-half">
+        <div className='col-half'>
           <nav>
-            <ul className="nav-ul">
+            <ul className='nav-ul'>
               {footerData ? (
                 footerData.navigation.link.map((menu) => (
-                  <li className="footer-nav-li" key={menu.title}>
+                  <li className='footer-nav-li' key={menu.title}>
                     <Link href={menu.href}>{menu.title}</Link>
                   </li>
                 ))
@@ -47,8 +47,8 @@ export default async function Footer() {
             </ul>
           </nav>
         </div>
-        <div className="col-quarter social-link">
-          <div className="social-nav">
+        <div className='col-quarter social-link'>
+          <div className='social-nav'>
             {footerData ? (
               footerData.social?.social_share.map((social) => (
                 <a
@@ -67,13 +67,13 @@ export default async function Footer() {
           </div>
         </div>
       </div>
-      {footerData && typeof footerData.copyright === "string" ? (
-        <div className="copyright">{parse(footerData.copyright)}</div>
+      {footerData && typeof footerData.copyright === 'string' ? (
+        <div className='copyright'>{parse(footerData.copyright)}</div>
       ) : (
-        <div className="copyright">
+        <div className='copyright'>
           <Skeleton width={500} />
         </div>
       )}
     </footer>
-  );
+  )
 }
