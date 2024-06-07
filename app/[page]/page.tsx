@@ -1,4 +1,4 @@
-import RenderComponents from '../../@/components/render-components'
+import RenderComponents from '@/components/render-components'
 import { getPageRes } from '../../helper'
 import Skeleton from 'react-loading-skeleton'
 
@@ -8,6 +8,7 @@ async function fetchData(entryUrl: string) {
     if (!entryRes) throw new Error('Status code 404')
     return entryRes
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
   }
 }

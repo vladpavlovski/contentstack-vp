@@ -3,17 +3,8 @@ import parse from 'html-react-parser'
 import { getFooterRes } from '../helper'
 import Skeleton from 'react-loading-skeleton'
 
-async function fetchData() {
-  try {
-    const footerRes = await getFooterRes()
-    return footerRes
-  } catch (error) {
-    console.error(error)
-  }
-}
-
 export default async function Footer() {
-  const footerData = await fetchData()
+  const footerData = await getFooterRes()
 
   return (
     <footer>

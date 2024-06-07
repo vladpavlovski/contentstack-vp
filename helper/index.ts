@@ -1,8 +1,9 @@
+'server-only'
 import { addEditableTags } from '@contentstack/utils'
 import { Page, BlogPosts } from '../typescript/pages'
 import getConfig from 'next/config'
 import { FooterProps, HeaderProps } from '../typescript/layout'
-import { getEntry, getEntryByUrl } from '../contentstack-sdk'
+import { getEntry, getEntryByUrl, getHeader } from '../contentstack-sdk'
 
 const { publicRuntimeConfig } = getConfig()
 const envConfig = process.env.CONTENTSTACK_API_KEY
@@ -12,11 +13,7 @@ const envConfig = process.env.CONTENTSTACK_API_KEY
 const liveEdit = envConfig.CONTENTSTACK_LIVE_EDIT_TAGS === 'true'
 
 export const getHeaderRes = async (): Promise<HeaderProps> => {
-  const response = (await getEntry({
-    contentTypeUid: 'header',
-    referenceFieldPath: ['navigation_menu.page_reference'],
-    jsonRtePath: ['notification_bar.announcement_text'],
-  })) as HeaderProps[][]
+  const response = (await getHeader()) as HeaderProps[][]
 
   liveEdit && addEditableTags(response[0][0], 'header', true)
   return response[0][0]

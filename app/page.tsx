@@ -8,6 +8,7 @@ async function fetchData() {
     if (!entryRes) throw new Error('Status code 404')
     return entryRes
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
   }
 }

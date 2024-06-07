@@ -1,3 +1,5 @@
+'server-only'
+
 import * as Utils from '@contentstack/utils'
 import ContentstackLivePreview from '@contentstack/live-preview-utils'
 import getConfig from 'next/config'
@@ -45,7 +47,10 @@ ContentstackLivePreview.init({
     host: envConfig.CONTENTSTACK_APP_HOST,
   },
   ssr: false,
-})?.catch((err) => console.error(err))
+})?.catch((err) => {
+  // eslint-disable-next-line no-console
+  console.error(err)
+})
 
 export const { onEntryChange } = ContentstackLivePreview
 
@@ -69,6 +74,7 @@ export const getEntry = ({
   return new Promise((resolve, reject) => {
     const query = Stack.ContentType(contentTypeUid).Query()
     if (referenceFieldPath) query.includeReference(referenceFieldPath)
+
     query
       .toJSON()
       .find()
@@ -120,9 +126,43 @@ export const getEntryByUrl = ({
         resolve(result[0])
       },
       (error) => {
+        // eslint-disable-next-line no-console
         console.error(error)
         reject(error)
       }
     )
+  })
+}
+
+/**
+ *
+ * fetches Header
+ *
+ */
+export const getHeader = () => {
+  const FIRST_LEVEL_PAGE_REFERENCE = 'navigation_menu.page_reference'
+  const SECOND_LEVEL_PAGE_REFERENCE =
+    'navigation_menu.navigation_submenu.page_reference'
+  return new Promise((resolve, reject) => {
+    const query = Stack.ContentType('header').Query()
+    query
+      .includeReference([
+        FIRST_LEVEL_PAGE_REFERENCE,
+        SECOND_LEVEL_PAGE_REFERENCE,
+      ])
+      .only(FIRST_LEVEL_PAGE_REFERENCE, ['title', 'url'])
+      .only(SECOND_LEVEL_PAGE_REFERENCE, ['title', 'url'])
+
+    query
+      .toJSON()
+      .find()
+      .then(
+        (result) => {
+          resolve(result)
+        },
+        (error) => {
+          reject(error)
+        }
+      )
   })
 }

@@ -1,13 +1,14 @@
 import Link from 'next/link'
-import { getHeaderRes } from '../helper'
+import { getHeaderRes } from '../../helper'
 import Skeleton from 'react-loading-skeleton'
-
+import { Menu } from './menu'
 
 async function fetchData() {
   try {
     const headerRes = await getHeaderRes()
     return headerRes
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error)
   }
 }
@@ -36,8 +37,10 @@ export default async function Header() {
         <label className='menu-icon' htmlFor='menu-btn'>
           <span className='navicon' />
         </label>
-        <nav className='menu'>
+        {headerData ? <Menu data={headerData} /> : <Skeleton width={300} />}
 
+        {/* <nav className='menu'>
+          
           <ul className='nav-ul header-ul'>
             {headerData ? (
               headerData.navigation_menu.map((list) => {
@@ -51,7 +54,7 @@ export default async function Header() {
               <Skeleton width={300} />
             )}
           </ul>
-        </nav>
+        </nav> */}
       </div>
     </header>
   )

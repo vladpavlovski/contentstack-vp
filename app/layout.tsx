@@ -1,10 +1,9 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '@/components/header'
+import Header from '@/components/header/header'
 import Footer from '@/components/footer'
 import '../styles/style.css'
-import 'react-loading-skeleton/dist/skeleton.css'
 
 export const metadata: Metadata = {
   title: 'Rapid7',
@@ -19,9 +18,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <head>
-        <link rel='preconnect' href='https://fonts.gstatic.com' />
-      </head>
+      <head />
       <body className={`antialiased`}>
         <Header />
         <main className='mainClass'>{children}</main>

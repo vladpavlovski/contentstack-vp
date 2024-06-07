@@ -86,6 +86,8 @@ type List = {
   page_reference: [PageRef]
   $: {}
   href?: string
+  _metadata: { uid: string }
+  navigation_submenu: [List]
 }
 
 export type NavLinks = {
