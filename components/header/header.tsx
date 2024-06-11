@@ -17,13 +17,12 @@ export default async function Header() {
   const headerData = await fetchData()
 
   return (
-    <header className='header'>
-      <div className='max-width header-div'>
-        <div className='wrapper-logo'>
+    <header className='container sticky top-0 bg-white'>
+      <div className='flex items-center justify-between'>
+        <div className='my-5'>
           {headerData ? (
-            <Link href='/' className='logo-tag' title='Contentstack'>
+            <Link href='/' title='Rapid7'>
               <img
-                className='logo'
                 src={headerData.logo.url}
                 alt={headerData.title}
                 title={headerData.title}
@@ -33,10 +32,7 @@ export default async function Header() {
             <Skeleton width={150} />
           )}
         </div>
-        <input className='menu-btn' type='checkbox' id='menu-btn' />
-        <label className='menu-icon' htmlFor='menu-btn'>
-          <span className='navicon' />
-        </label>
+
         {headerData ? <Menu data={headerData} /> : <Skeleton width={300} />}
 
         {/* <nav className='menu'>
