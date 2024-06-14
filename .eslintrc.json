@@ -8,7 +8,8 @@
     "prettier",
     "eslint:recommended",
     "plugin:react/recommended",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,11 +18,15 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "react/prop-types": 0,
     "@next/next/no-img-element": "off",
     "no-console": "error"
   },
-  "ignorePatterns": ["/public"]
+  "ignorePatterns": [
+    "/public"
+  ]
 }

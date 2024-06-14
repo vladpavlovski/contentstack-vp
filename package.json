@@ -12,7 +12,9 @@
     "prettier:format": "prettier --write .",
     "prettier:check": "prettier --check \"**/*.{ts,tsx,json}\"",
     "eslint:format": "eslint --fix",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@contentstack/live-preview-utils": "1.4.2",
@@ -65,11 +67,23 @@
     "react-loading-skeleton": "3.4.0",
     "sonner": "1.5.0",
     "tailwind-merge": "2.3.0",
+    "tailwind-variants": "0.2.1",
     "tailwindcss-animate": "1.0.7",
     "vaul": "0.9.1",
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "8.1.8",
+    "@storybook/addon-essentials": "8.1.8",
+    "@storybook/addon-interactions": "8.1.8",
+    "@storybook/addon-links": "8.1.8",
+    "@storybook/addon-onboarding": "8.1.8",
+    "@storybook/addon-themes": "8.1.8",
+    "@storybook/blocks": "8.1.8",
+    "@storybook/nextjs": "8.1.8",
+    "@storybook/react": "8.1.8",
+    "@storybook/test": "8.1.8",
+    "@storybook/theming": "^8.1.8",
     "@types/node": "20.14.2",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
@@ -77,9 +91,13 @@
     "eslint": "8.56.0",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-storybook": "0.8.0",
     "postcss": "8.4.38",
     "prettier": "3.3.2",
     "prettier-plugin-tailwindcss": "0.6.2",
+    "storybook": "8.1.8",
+    "storybook-dark-mode": "4.0.1",
+    "storybook-tailwind-dark-mode": "^1.0.22",
     "tailwindcss": "3.4.4",
     "typescript": "5.4.5"
   },

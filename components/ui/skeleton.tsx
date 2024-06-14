@@ -1,6 +1,8 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 
+type SkeletonProps = React.ComponentPropsWithoutRef<'div'>
+
 function Skeleton({
   className,
   ...props
@@ -13,4 +15,4 @@ function Skeleton({
   )
 }
 
-export { Skeleton }
+export { Skeleton, type SkeletonProps }
