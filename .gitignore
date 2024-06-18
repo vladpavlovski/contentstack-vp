@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 
-
 # testing
 /coverage
 
@@ -38,3 +37,5 @@ yarn-error.log*
 *.tsbuildinfo
 
 *storybook.log
+
+/storybook-static
