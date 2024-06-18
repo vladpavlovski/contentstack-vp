@@ -24,8 +24,7 @@ export default async function RootLayout({
       <body className={`antialiased`}>
         <ThemeProvider
           attribute='class'
-          defaultTheme='dark'
-          // enableSystem
+          defaultTheme='light'
           disableTransitionOnChange
         >
           <Header />
