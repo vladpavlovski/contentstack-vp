@@ -7,14 +7,13 @@ const config: StorybookConfig = {
   ],
 
   addons: [
-    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
     '@storybook/addon-themes',
-    '@storybook/addon-a11y',
     'storybook-dark-mode',
-    'storybook-tailwind-dark-mode',
+    '@storybook/addon-a11y',
   ],
 
   framework: {
@@ -22,15 +21,15 @@ const config: StorybookConfig = {
     options: {},
   },
 
-  staticDirs: ['../public'],
+  // staticDirs: ['../public'],
 
   docs: {
     //👇 See the table below for the list of supported options
     defaultName: 'Documentation',
   },
 
-  typescript: {
-    reactDocgen: 'react-docgen-typescript',
-  },
+  // typescript: {
+  //   reactDocgen: 'react-docgen-typescript',
+  // },
 }
 export default config

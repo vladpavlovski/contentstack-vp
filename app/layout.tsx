@@ -1,9 +1,11 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import './globals.css'
+import '../styles/globals.css'
 import Header from '@/components/header/header'
 import Footer from '@/components/footer'
+import { ThemeProvider } from '@/components/theme/theme-provider'
 import '../styles/style.css'
+import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
   title: 'Rapid7',
@@ -20,32 +22,18 @@ export default async function RootLayout({
     <html lang='en'>
       <head />
       <body className={`antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='dark'
+          // enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   )
 }
-
-// TODO: SEO staff
-// const metaData = (seo: any) => {
-//   const metaArr = [];
-//   for (const key in seo) {
-//     if (seo.enable_search_indexing) {
-//       metaArr.push(
-//         <meta
-//           name={
-//             key.includes('meta_')
-//               ? key.split('meta_')[1].toString()
-//               : key.toString()
-//           }
-//           content={seo[key].toString()}
-//           key={key}
-//         />
-//       );
-//     }
-//   }
-//   return metaArr;
-// };
-// {page?.seo && page.seo.enable_search_indexing && metaData(page.seo)}
