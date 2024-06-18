@@ -41,7 +41,12 @@ export function Menu({ data }: { data: HeaderProps }) {
               </NavigationMenuContent>
             </NavigationMenuItem>
           ) : (
-            <Link href={menuItem.page_reference[0].url} legacyBehavior passHref>
+            <Link
+              key={menuItem._metadata.uid}
+              href={menuItem.page_reference[0].url}
+              legacyBehavior
+              passHref
+            >
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 {menuItem.label}
               </NavigationMenuLink>
