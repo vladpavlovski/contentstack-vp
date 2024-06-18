@@ -1,6 +1,7 @@
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { AvatarProps } from '@radix-ui/react-avatar'
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<AvatarProps> = {
   title: 'Components/Avatar',
@@ -8,6 +9,18 @@ const meta: Meta<AvatarProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A modal dialog that interrupts the user with important content and expects a response.'
+          slug='alert-dialog'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <Avatar {...props}>

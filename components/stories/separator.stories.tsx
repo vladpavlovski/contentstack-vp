@@ -1,6 +1,7 @@
 import { Separator } from '@/components/ui/separator'
 import { SeparatorProps } from '@radix-ui/react-separator'
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<SeparatorProps> = {
   title: 'Components/Separator',
@@ -8,6 +9,18 @@ const meta: Meta<SeparatorProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='Visually or semantically separates content.'
+          slug='separator'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render() {
     return (
       <>

@@ -13,6 +13,7 @@ import {
 import { Button } from '@/components/ui/button'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<AlertDialogProps> = {
   title: 'Components/Alert Dialog',
@@ -20,6 +21,18 @@ const meta: Meta<AlertDialogProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A modal dialog that interrupts the user with important content and expects a response.'
+          slug='alert-dialog'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <AlertDialog {...props}>

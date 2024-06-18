@@ -2,6 +2,7 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { SwitchProps } from '@radix-ui/react-switch'
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<SwitchProps> = {
   title: 'Components/Switch',
@@ -12,6 +13,18 @@ const meta: Meta<SwitchProps> = {
   args: {
     disabled: false,
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A control that allows the user to toggle between checked and not checked.'
+          slug='switch'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
 }
 
 export default meta

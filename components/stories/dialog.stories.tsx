@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<DialogProps> = {
   title: 'Components/Dialog',
@@ -20,6 +21,18 @@ const meta: Meta<DialogProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.'
+          slug='dialog'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <Dialog {...props}>

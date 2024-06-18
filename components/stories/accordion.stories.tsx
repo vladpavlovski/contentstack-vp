@@ -6,6 +6,7 @@ import {
   AlertDialogProps,
 } from '@/components/ui/accordion'
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<AlertDialogProps> = {
   title: 'Components/Accordion',
@@ -37,6 +38,18 @@ const meta: Meta<AlertDialogProps> = {
       },
     },
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A vertically stacked set of interactive headings that each reveal a section of content'
+          slug='accordion'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <Accordion {...props} className='w-full'>

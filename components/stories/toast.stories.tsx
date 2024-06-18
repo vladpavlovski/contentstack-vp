@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Toaster } from '@/components/ui/sonner'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ToasterProps, toast } from 'sonner'
+import { StoryHeader } from './StoryHeader'
 
 type ToasterStoryProps = ToasterProps & {
   message: string
@@ -13,6 +14,18 @@ const meta: Meta<ToasterStoryProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A succinct message that is displayed temporarily.'
+          slug='toast'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
 }
 
 export default meta
@@ -20,25 +33,22 @@ export default meta
 type Story = StoryObj<ToasterStoryProps>
 
 export const Default: Story = {
-  render({ message, ...props }) {
+  render({ message }) {
     return (
-      <>
-        <Toaster {...props} />
-        <Button
-          onClick={() => {
-            toast(message, {
-              description: 'Sunday, December 03, 2023 at 9:00 AM',
-              action: {
-                label: 'Undo',
-                // eslint-disable-next-line no-console
-                onClick: () => console.log('Undo'),
-              },
-            })
-          }}
-        >
-          Show toast
-        </Button>
-      </>
+      <Button
+        onClick={() => {
+          toast(message, {
+            description: 'Sunday, December 03, 2023 at 9:00 AM',
+            action: {
+              label: 'Undo',
+              // eslint-disable-next-line no-console
+              onClick: () => console.log('Undo'),
+            },
+          })
+        }}
+      >
+        Show toast
+      </Button>
     )
   },
   args: {
@@ -47,18 +57,15 @@ export const Default: Story = {
 }
 
 export const Success: Story = {
-  render({ message, ...props }) {
+  render({ message }) {
     return (
-      <>
-        <Toaster {...props} />
-        <Button
-          onClick={() => {
-            toast.success(message)
-          }}
-        >
-          Show toast
-        </Button>
-      </>
+      <Button
+        onClick={() => {
+          toast.success(message)
+        }}
+      >
+        Show toast
+      </Button>
     )
   },
   args: {
@@ -67,18 +74,15 @@ export const Success: Story = {
 }
 
 export const Error: Story = {
-  render({ message, ...props }) {
+  render({ message }) {
     return (
-      <>
-        <Toaster {...props} />
-        <Button
-          onClick={() => {
-            toast.error(message)
-          }}
-        >
-          Show toast
-        </Button>
-      </>
+      <Button
+        onClick={() => {
+          toast.error(message)
+        }}
+      >
+        Show toast
+      </Button>
     )
   },
   args: {
@@ -88,7 +92,7 @@ export const Error: Story = {
 
 export const PromiseToast: Story = {
   name: 'Promise',
-  render({ ...props }) {
+  render() {
     const promise = () =>
       new Promise<string>((resolve, reject) => {
         setTimeout(() => {
@@ -101,22 +105,19 @@ export const PromiseToast: Story = {
       })
 
     return (
-      <>
-        <Toaster {...props} />
-        <Button
-          onClick={() => {
-            toast.promise(promise, {
-              loading: 'Loading...',
-              success: (data) => {
-                return `${data} world!`
-              },
-              error: 'Error',
-            })
-          }}
-        >
-          Show toast
-        </Button>
-      </>
+      <Button
+        onClick={() => {
+          toast.promise(promise, {
+            loading: 'Loading...',
+            success: (data) => {
+              return `${data} world!`
+            },
+            error: 'Error',
+          })
+        }}
+      >
+        Show toast
+      </Button>
     )
   },
 }

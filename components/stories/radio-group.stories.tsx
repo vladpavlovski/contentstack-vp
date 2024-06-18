@@ -2,6 +2,7 @@ import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { RadioGroupProps } from '@radix-ui/react-radio-group'
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<RadioGroupProps> = {
   title: 'Components/Radio Group',
@@ -9,6 +10,18 @@ const meta: Meta<RadioGroupProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.'
+          slug='radio-group'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <RadioGroup {...props} defaultValue='comfortable'>
@@ -29,6 +42,7 @@ const meta: Meta<RadioGroupProps> = {
   },
   args: {
     disabled: false,
+    asChild: false,
   },
 }
 
@@ -41,5 +55,6 @@ export const Default: Story = {}
 export const Disabled: Story = {
   args: {
     disabled: true,
+    asChild: false,
   },
 }

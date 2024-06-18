@@ -36,6 +36,7 @@ import {
   DropdownMenuProps,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<DropdownMenuProps> = {
   title: 'Components/Dropdown Menu',
@@ -43,6 +44,18 @@ const meta: Meta<DropdownMenuProps> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='Displays a menu to the user—such as a set of actions or functions—triggered by a button.'
+          slug='dropdown-menu'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <DropdownMenu {...props}>

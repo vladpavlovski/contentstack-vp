@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/select'
 import { SelectProps } from '@radix-ui/react-select'
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<SelectProps> = {
   title: 'Components/Select',
@@ -20,6 +21,18 @@ const meta: Meta<SelectProps> = {
   args: {
     disabled: false,
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='Displays a list of options for the user to pick from—triggered by a button.'
+          slug='select'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
   render(props) {
     return (
       <Select {...props}>

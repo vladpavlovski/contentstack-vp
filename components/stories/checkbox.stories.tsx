@@ -3,6 +3,7 @@ import { Label } from '@/components/ui/label'
 import { CheckboxProps } from '@radix-ui/react-checkbox'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { StoryHeader } from './StoryHeader'
 
 const meta: Meta<CheckboxProps> = {
   title: 'Components/Checkbox',
@@ -13,6 +14,18 @@ const meta: Meta<CheckboxProps> = {
   args: {
     disabled: false,
   },
+  decorators: [
+    (Story) => {
+      return (
+        <StoryHeader
+          description='A control that allows the user to toggle between checked and not checked.'
+          slug='checkbox'
+        >
+          <Story />
+        </StoryHeader>
+      )
+    },
+  ],
 }
 
 export default meta

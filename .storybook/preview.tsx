@@ -9,7 +9,7 @@ import {
   lightUIStorybook,
   commonTheme,
 } from './themes-storybook-ui'
-import { Toaster } from '../components/ui/toaster'
+import { Toaster } from '@/components/ui/sonner'
 
 const preview: Preview = {
   parameters: {
