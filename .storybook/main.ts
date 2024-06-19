@@ -2,13 +2,13 @@ import type { StorybookConfig } from '@storybook/nextjs'
 
 const config: StorybookConfig = {
   stories: [
-    '../components/stories/**/*.mdx',
+    // '../components/stories/**/*.mdx',
     '../components/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
 
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
+    { name: '@storybook/addon-essentials', options: { docs: false } },
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
     '@storybook/addon-themes',
@@ -18,7 +18,7 @@ const config: StorybookConfig = {
 
   framework: {
     name: '@storybook/nextjs',
-    options: {},
+    options: { builder: { useSWC: true } },
   },
 
   // staticDirs: ['../public'],
@@ -28,8 +28,8 @@ const config: StorybookConfig = {
     defaultName: 'Documentation',
   },
 
-  // typescript: {
-  //   reactDocgen: 'react-docgen-typescript',
-  // },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
 }
 export default config
