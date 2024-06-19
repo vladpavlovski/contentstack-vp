@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Action } from '../../typescript/action'
+import { Action } from '@/typescript/action'
 
 type AdditionalParam = {
   title_h3: string

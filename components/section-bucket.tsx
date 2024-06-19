@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import parse from 'html-react-parser'
-import { Image, Action } from '../../typescript/action'
+import { Image, Action } from '@/typescript/action'
 
 type AdditionalParam = {
   title: string

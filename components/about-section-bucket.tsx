@@ -1,6 +1,6 @@
 import React from 'react'
 import parse from 'html-react-parser'
-import { Action, Image } from '../../typescript/action'
+import { Action, Image } from '@/typescript/action'
 
 type AdditionalParam = {
   title_h2?: string
