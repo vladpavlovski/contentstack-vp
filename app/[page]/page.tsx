@@ -1,4 +1,4 @@
-import RenderComponents from '@/components/render-components'
+import RenderComponents from '@/components/renderer/RenderComponents'
 import { getPageRes } from '../../helper'
 import Skeleton from 'react-loading-skeleton'
 

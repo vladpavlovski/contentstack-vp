@@ -2,13 +2,12 @@
 import React from 'react'
 import { Section } from '@/components/blocks/sections/Section'
 import { Hero1 } from '@/components/blocks/heroes/Hero1'
-
 import { SectionBucket } from '@/components/blocks/sections/SectionBucket'
-import { RenderProps, Component } from '../typescript/component'
-import { AboutSectionBucket } from './blocks/sections/SectionBucketAbout'
-import { CardSection } from './blocks/sections/SectionCard'
-import { TeamSection } from './blocks/sections/SectionTeam'
-import { SectionHtmlCode } from './blocks/sections/SectionHtmlCode'
+import { Component } from '@/typescript/component'
+import { AboutSectionBucket } from '@/components/blocks/sections/SectionBucketAbout'
+import { CardSection } from '@/components/blocks/sections/SectionCard'
+import { TeamSection } from '@/components/blocks/sections/SectionTeam'
+import { SectionHtmlCode } from '@/components/blocks/sections/SectionHtmlCode'
 
 // Define the component renderers type
 type ComponentRenderers = {
@@ -20,7 +19,7 @@ type ComponentRenderers = {
 }
 
 // Initialize the component renderers
-const componentRenderers: ComponentRenderers = {
+export const componentRenderers: ComponentRenderers = {
   hero_banner: (component, key, blogPost) =>
     blogPost ? null : <Hero1 banner={component.hero_banner} key={key} />,
   section: (component, key) => (
@@ -45,32 +44,4 @@ const componentRenderers: ComponentRenderers = {
   our_team: (component, key) => (
     <TeamSection ourTeam={component.our_team!} key={key} />
   ),
-  widget: () => null,
 }
-
-const RenderComponents: React.FC<RenderProps> = (props) => {
-  const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props
-
-  return (
-    <div
-      data-pageref={entryUid}
-      data-contenttype={contentTypeUid}
-      data-locale={locale}
-    >
-      {pageComponents?.map((component, key) => {
-        for (let type in component) {
-          if (componentRenderers[type as keyof Component]) {
-            return componentRenderers[type as keyof Component]!(
-              component,
-              `component-${key}`,
-              blogPost
-            )
-          }
-        }
-        return null // In case no matching type is found
-      })}
-    </div>
-  )
-}
-
-export default RenderComponents
