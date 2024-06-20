@@ -5,9 +5,9 @@ import { Hero1 } from '@/components/blocks/heroes/Hero1'
 import CardSection from '@/components/card-section'
 import TeamSection from '@/components/team-section'
 import { SectionBucket } from '@/components/blocks/sections/SectionBucket'
-import AboutSectionBucket from '@/components/about-section-bucket'
 import SectionWithHtmlCode from '@/components/section-with-html-code'
 import { RenderProps, Component } from '../typescript/component'
+import { AboutSectionBucket } from './blocks/sections/SectionBucketAbout'
 
 // Define the component renderers type
 type ComponentRenderers = {
@@ -52,6 +52,7 @@ const componentRenderers: ComponentRenderers = {
 
 const RenderComponents: React.FC<RenderProps> = (props) => {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props
+
   return (
     <div
       data-pageref={entryUid}

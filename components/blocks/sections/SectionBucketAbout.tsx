@@ -27,34 +27,40 @@ type BucketsList = {
 
 type BucketProps = {
   title_h2: string
-  buckets: [BucketsList]
+  buckets: BucketsList[]
   $: AdditionalParam
 }
 
-export default function AboutSectionBucket({
+export function AboutSectionBucket({
   sectionWithBuckets,
 }: {
   sectionWithBuckets: BucketProps
 }) {
   function bucketContent(bucket: Bucket, index: number) {
     return (
-      <div className='mission-content-section' key={index}>
+      <div
+        key={index}
+        className='flex flex-col items-center p-4 md:flex-row md:items-start md:space-x-4'
+      >
         {bucket.icon && (
           <img
-            className='mission-icon'
             {...(bucket.icon.$?.url as {})}
             src={bucket.icon.url}
             alt='art work'
+            className='mb-4 h-20 w-20 object-cover md:mb-0'
           />
         )}
-
-        <div className='mission-section-content'>
+        <div>
           {bucket.title_h3 && (
-            <h3 {...(bucket.$?.title_h3 as {})}>{bucket.title_h3}</h3>
+            <h3
+              {...(bucket.$?.title_h3 as {})}
+              className='mb-2 text-lg font-semibold'
+            >
+              {bucket.title_h3}
+            </h3>
           )}
           {typeof bucket.description === 'string' && (
-            <div {...(bucket.$?.description as {})}>
-              {' '}
+            <div {...(bucket.$?.description as {})} className='text-base'>
               {parse(bucket.description)}
             </div>
           )}
@@ -64,25 +70,21 @@ export default function AboutSectionBucket({
   }
 
   return (
-    <div className='member-main-section'>
-      <div className='member-head'>
+    <div className='mx-auto max-w-7xl px-4 py-8'>
+      <div className='mb-8 text-center'>
         {sectionWithBuckets.title_h2 && (
-          <h2 {...(sectionWithBuckets.$?.title_h2 as {})}>
+          <h2
+            {...(sectionWithBuckets.$?.title_h2 as {})}
+            className='text-3xl font-bold'
+          >
             {sectionWithBuckets.title_h2}
           </h2>
         )}
       </div>
-      <div className='mission-section'>
-        <div className='mission-content-top'>
-          {sectionWithBuckets?.buckets.map(
-            (bucket, index) => index < 2 && bucketContent(bucket, index)
-          )}
-        </div>
-        <div className='mission-content-bottom'>
-          {sectionWithBuckets.buckets.map(
-            (bucket, index) => index >= 2 && bucketContent(bucket, index)
-          )}
-        </div>
+      <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+        {sectionWithBuckets.buckets.map((bucket, index) =>
+          bucketContent(bucket, index)
+        )}
       </div>
     </div>
   )
