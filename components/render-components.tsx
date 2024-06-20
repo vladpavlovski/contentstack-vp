@@ -1,5 +1,5 @@
 import React from 'react'
-import Section from '@/components/section'
+import { Section } from '@/components/blocks/sections/Section'
 import { Hero1 } from '@/components/blocks/heroes/Hero1'
 import CardSection from '@/components/card-section'
 import TeamSection from '@/components/team-section'
