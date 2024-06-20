@@ -3,12 +3,12 @@ import React from 'react'
 import { Section } from '@/components/blocks/sections/Section'
 import { Hero1 } from '@/components/blocks/heroes/Hero1'
 
-import TeamSection from '@/components/team-section'
 import { SectionBucket } from '@/components/blocks/sections/SectionBucket'
 import SectionWithHtmlCode from '@/components/section-with-html-code'
 import { RenderProps, Component } from '../typescript/component'
 import { AboutSectionBucket } from './blocks/sections/SectionBucketAbout'
 import { CardSection } from './blocks/sections/SectionCard'
+import TeamSection from './blocks/sections/SectionTeam'
 
 // Define the component renderers type
 type ComponentRenderers = {
