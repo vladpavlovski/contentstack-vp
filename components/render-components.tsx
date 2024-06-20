@@ -4,11 +4,11 @@ import { Section } from '@/components/blocks/sections/Section'
 import { Hero1 } from '@/components/blocks/heroes/Hero1'
 
 import { SectionBucket } from '@/components/blocks/sections/SectionBucket'
-import SectionWithHtmlCode from '@/components/section-with-html-code'
 import { RenderProps, Component } from '../typescript/component'
 import { AboutSectionBucket } from './blocks/sections/SectionBucketAbout'
 import { CardSection } from './blocks/sections/SectionCard'
-import TeamSection from './blocks/sections/SectionTeam'
+import { TeamSection } from './blocks/sections/SectionTeam'
+import { SectionHtmlCode } from './blocks/sections/SectionHtmlCode'
 
 // Define the component renderers type
 type ComponentRenderers = {
@@ -40,10 +40,7 @@ const componentRenderers: ComponentRenderers = {
     <CardSection cards={component.section_with_cards!.cards} key={key} />
   ),
   section_with_html_code: (component, key) => (
-    <SectionWithHtmlCode
-      embedCode={component.section_with_html_code!}
-      key={key}
-    />
+    <SectionHtmlCode embedCode={component.section_with_html_code!} key={key} />
   ),
   our_team: (component, key) => (
     <TeamSection ourTeam={component.our_team!} key={key} />

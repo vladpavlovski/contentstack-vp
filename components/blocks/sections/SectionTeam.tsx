@@ -31,7 +31,7 @@ type TeamProps = {
   employees: Employee[]
 }
 
-export default function TeamSection({ ourTeam }: { ourTeam: TeamProps }) {
+export function TeamSection({ ourTeam }: { ourTeam: TeamProps }) {
   return (
     <div className='mx-auto max-w-7xl px-4 py-8'>
       <div className='mb-8'>
