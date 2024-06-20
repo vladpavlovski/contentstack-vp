@@ -31,11 +31,6 @@ h4 {
 
 body a {
   text-decoration: none;
-  color: #222222;
-}
-
-body p {
-  color: #444444;
 }
 
 .max-width {
@@ -132,26 +127,6 @@ header nav li a.active {
 
 .header-ul .hamburger-icon {
   display: none;
-}
-
-footer {
-  margin-top: 75px;
-  background: #fff;
-}
-
-footer a {
-  color: #222222;
-  padding: 12px;
-}
-
-.footer-div {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-.footer-nav-li {
-  padding: 0;
 }
 
 .col-half {
