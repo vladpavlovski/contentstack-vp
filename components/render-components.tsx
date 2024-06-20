@@ -1,12 +1,42 @@
 import React from 'react'
 import Section from '@/components/section'
-import HeroBanner from '@/components/hero-banner'
+import { Hero1 } from '@/components/blocks/heroes/Hero1'
 import CardSection from '@/components/card-section'
 import TeamSection from '@/components/team-section'
 import SectionBucket from '@/components/section-bucket'
 import AboutSectionBucket from '@/components/about-section-bucket'
 import SectionWithHtmlCode from '@/components/section-with-html-code'
 import { RenderProps } from '../typescript/component'
+
+const componentRenderers = {
+  hero_banner: (component, key, blogPost) =>
+    blogPost ? null : <Hero1 banner={component.hero_banner} key={key} />,
+  section: (component, key) => (
+    <Section section={component.section} key={key} />
+  ),
+  section_with_buckets: (component, key) =>
+    component.section_with_buckets.bucket_tabular ? (
+      <AboutSectionBucket
+        sectionWithBuckets={component.section_with_buckets}
+        key={key}
+      />
+    ) : (
+      <SectionBucket section={component.section_with_buckets} key={key} />
+    ),
+  from_blog: () => null,
+  section_with_cards: (component, key) => (
+    <CardSection cards={component.section_with_cards.cards} key={key} />
+  ),
+  section_with_html_code: (component, key) => (
+    <SectionWithHtmlCode
+      embedCode={component.section_with_html_code}
+      key={key}
+    />
+  ),
+  our_team: (component, key) => (
+    <TeamSection ourTeam={component.our_team} key={key} />
+  ),
+}
 
 export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogPost, entryUid, contentTypeUid, locale } = props
@@ -16,60 +46,17 @@ export default function RenderComponents(props: RenderProps) {
       data-contenttype={contentTypeUid}
       data-locale={locale}
     >
-      {pageComponents?.map((component, key: number) => {
-        if (component.hero_banner) {
-          return blogPost ? null : (
-            <HeroBanner
-              banner={component.hero_banner}
-              key={`component-${key}`}
-            />
-          )
+      {pageComponents?.map((component, key) => {
+        for (let type in component) {
+          if (componentRenderers[type]) {
+            return componentRenderers[type](
+              component,
+              `component-${key}`,
+              blogPost
+            )
+          }
         }
-        if (component.section) {
-          return (
-            <Section section={component.section} key={`component-${key}`} />
-          )
-        }
-        if (component.section_with_buckets) {
-          return component.section_with_buckets.bucket_tabular ? (
-            <AboutSectionBucket
-              sectionWithBuckets={component.section_with_buckets}
-              key={`component-${key}`}
-            />
-          ) : (
-            <SectionBucket
-              section={component.section_with_buckets}
-              key={`component-${key}`}
-            />
-          )
-        }
-        if (component.from_blog) {
-          return null
-        }
-        if (component.section_with_cards) {
-          return (
-            <CardSection
-              cards={component.section_with_cards.cards}
-              key={`component-${key}`}
-            />
-          )
-        }
-        if (component.section_with_html_code) {
-          return (
-            <SectionWithHtmlCode
-              embedCode={component.section_with_html_code}
-              key={`component-${key}`}
-            />
-          )
-        }
-        if (component.our_team) {
-          return (
-            <TeamSection
-              ourTeam={component.our_team}
-              key={`component-${key}`}
-            />
-          )
-        }
+        return null // In case no matching type is found
       })}
     </div>
   )
