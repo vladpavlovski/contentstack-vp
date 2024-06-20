@@ -4,7 +4,6 @@ import '../styles/globals.css'
 import Header from '@/components/header/header'
 import { Footer } from '@/components/footer/Footer'
 import { ThemeProvider } from '@/components/theme/theme-provider'
-import '../styles/style.css'
 import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
