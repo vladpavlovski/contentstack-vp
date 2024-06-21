@@ -1,3 +1,5 @@
+import { BlogMain } from './_components/BlogMain'
+
 export default async function Page() {
-  return <div>Blog</div>
+  return <BlogMain />
 }
