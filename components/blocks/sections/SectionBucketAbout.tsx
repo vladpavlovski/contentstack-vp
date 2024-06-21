@@ -31,17 +31,10 @@ type BucketProps = {
   $: AdditionalParam
 }
 
-export function AboutSectionBucket({
-  sectionWithBuckets,
-}: {
-  sectionWithBuckets: BucketProps
-}) {
+export function AboutSectionBucket({ sectionWithBuckets }: { sectionWithBuckets: BucketProps }) {
   function bucketContent(bucket: Bucket, index: number) {
     return (
-      <div
-        key={index}
-        className='flex flex-col items-center p-4 md:flex-row md:items-start md:space-x-4'
-      >
+      <div key={index} className='flex flex-col items-center p-4 md:flex-row md:items-start md:space-x-4'>
         {bucket.icon && (
           <img
             {...(bucket.icon.$?.url as {})}
@@ -52,10 +45,7 @@ export function AboutSectionBucket({
         )}
         <div>
           {bucket.title_h3 && (
-            <h3
-              {...(bucket.$?.title_h3 as {})}
-              className='mb-2 text-lg font-semibold'
-            >
+            <h3 {...(bucket.$?.title_h3 as {})} className='mb-2 text-lg font-semibold'>
               {bucket.title_h3}
             </h3>
           )}
@@ -73,18 +63,13 @@ export function AboutSectionBucket({
     <div className='mx-auto max-w-7xl px-4 py-8'>
       <div className='mb-8 text-center'>
         {sectionWithBuckets.title_h2 && (
-          <h2
-            {...(sectionWithBuckets.$?.title_h2 as {})}
-            className='text-3xl font-bold'
-          >
+          <h2 {...(sectionWithBuckets.$?.title_h2 as {})} className='text-3xl font-bold'>
             {sectionWithBuckets.title_h2}
           </h2>
         )}
       </div>
       <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
-        {sectionWithBuckets.buckets.map((bucket, index) =>
-          bucketContent(bucket, index)
-        )}
+        {sectionWithBuckets.buckets.map((bucket, index) => bucketContent(bucket, index))}
       </div>
     </div>
   )

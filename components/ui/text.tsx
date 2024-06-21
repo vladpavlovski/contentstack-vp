@@ -8,10 +8,7 @@ export const TextStyles = tv({
     variant: {
       p: ['leading-7 [&:not(:first-child)]:mt-6'],
       blockquote: ['border-l-2 border-border pl-6 italic'],
-      label: [
-        'text-sm font-medium leading-none',
-        'peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-      ],
+      label: ['text-sm font-medium leading-none', 'peer-disabled:cursor-not-allowed peer-disabled:opacity-70'],
       link: [
         'inline-block text-sm text-primary hover:after:w-full',
         "after:block after:h-px after:w-0 after:bg-current after:transition-all after:content-['']",
@@ -48,13 +45,7 @@ type TextPProps = {
 } & React.ComponentPropsWithoutRef<'p'>
 
 export type TextProps = VariantProps<typeof TextStyles> &
-  (
-    | TextAsChildProps
-    | TextSpanProps
-    | TextLabelProps
-    | TextPProps
-    | TextLinkProps
-  )
+  (TextAsChildProps | TextSpanProps | TextLabelProps | TextPProps | TextLinkProps)
 
 export const Text = Object.assign(
   forwardRef<TextElement, TextProps>(function Text(

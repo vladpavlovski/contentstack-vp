@@ -12,12 +12,7 @@ const meta: Meta<BadgeProps> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: [
-        'default',
-        'secondary',
-        'outline',
-        'destructive',
-      ] satisfies BadgeVariant[],
+      options: ['default', 'secondary', 'outline', 'destructive'] satisfies BadgeVariant[],
       description: 'The variant of the badge.',
       table: {
         type: { summary: 'string' },

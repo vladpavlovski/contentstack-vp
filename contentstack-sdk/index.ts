@@ -3,11 +3,7 @@
 import * as Utils from '@contentstack/utils'
 import ContentstackLivePreview from '@contentstack/live-preview-utils'
 import getConfig from 'next/config'
-import {
-  customHostUrl,
-  initializeContentStackSdk,
-  isValidCustomHostUrl,
-} from './utils'
+import { customHostUrl, initializeContentStackSdk, isValidCustomHostUrl } from './utils'
 
 type GetEntry = {
   contentTypeUid: string
@@ -23,9 +19,7 @@ type GetEntryByUrl = {
 }
 
 const { publicRuntimeConfig } = getConfig()
-const envConfig = process.env.CONTENTSTACK_API_KEY
-  ? process.env
-  : publicRuntimeConfig
+const envConfig = process.env.CONTENTSTACK_API_KEY ? process.env : publicRuntimeConfig
 
 let customHostBaseUrl = envConfig.CONTENTSTACK_API_HOST as string
 
@@ -66,11 +60,7 @@ const renderOption = {
  * @param {* Json RTE path} jsonRtePath
  *
  */
-export const getEntry = ({
-  contentTypeUid,
-  referenceFieldPath,
-  jsonRtePath,
-}: GetEntry) => {
+export const getEntry = ({ contentTypeUid, referenceFieldPath, jsonRtePath }: GetEntry) => {
   return new Promise((resolve, reject) => {
     const query = Stack.ContentType(contentTypeUid).Query()
     if (referenceFieldPath) query.includeReference(referenceFieldPath)
@@ -104,12 +94,7 @@ export const getEntry = ({
  * @param {* Json RTE path} jsonRtePath
  * @returns
  */
-export const getEntryByUrl = ({
-  contentTypeUid,
-  entryUrl,
-  referenceFieldPath,
-  jsonRtePath,
-}: GetEntryByUrl) => {
+export const getEntryByUrl = ({ contentTypeUid, entryUrl, referenceFieldPath, jsonRtePath }: GetEntryByUrl) => {
   return new Promise((resolve, reject) => {
     const blogQuery = Stack.ContentType(contentTypeUid).Query()
     if (referenceFieldPath) blogQuery.includeReference(referenceFieldPath)
@@ -141,15 +126,11 @@ export const getEntryByUrl = ({
  */
 export const getHeader = () => {
   const FIRST_LEVEL_PAGE_REFERENCE = 'navigation_menu.page_reference'
-  const SECOND_LEVEL_PAGE_REFERENCE =
-    'navigation_menu.navigation_submenu.page_reference'
+  const SECOND_LEVEL_PAGE_REFERENCE = 'navigation_menu.navigation_submenu.page_reference'
   return new Promise((resolve, reject) => {
     const query = Stack.ContentType('header').Query()
     query
-      .includeReference([
-        FIRST_LEVEL_PAGE_REFERENCE,
-        SECOND_LEVEL_PAGE_REFERENCE,
-      ])
+      .includeReference([FIRST_LEVEL_PAGE_REFERENCE, SECOND_LEVEL_PAGE_REFERENCE])
       .only(FIRST_LEVEL_PAGE_REFERENCE, ['title', 'url'])
       .only(SECOND_LEVEL_PAGE_REFERENCE, ['title', 'url'])
 

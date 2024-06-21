@@ -65,11 +65,7 @@ export const Footer = async () => {
               <div className='flex flex-col gap-2'>
                 {footerData && footerData.logo ? (
                   <Link href='/'>
-                    <img
-                      src={footerData.logo.url}
-                      alt={footerData.title}
-                      title={footerData.title}
-                    />
+                    <img src={footerData.logo.url} alt={footerData.title} title={footerData.title} />
                   </Link>
                 ) : (
                   <Skeleton width={150} />
@@ -89,16 +85,10 @@ export const Footer = async () => {
             </div>
             <div className='grid items-start gap-10 lg:grid-cols-3'>
               {navigationItems.map((item) => (
-                <div
-                  key={item.title}
-                  className='flex flex-col items-start gap-1 text-base'
-                >
+                <div key={item.title} className='flex flex-col items-start gap-1 text-base'>
                   <div className='flex flex-col gap-2'>
                     {item.href ? (
-                      <Link
-                        href={item.href}
-                        className='flex items-center justify-between'
-                      >
+                      <Link href={item.href} className='flex items-center justify-between'>
                         <span className='text-xl'>{item.title}</span>
                       </Link>
                     ) : (
@@ -106,14 +96,8 @@ export const Footer = async () => {
                     )}
                     {item.items &&
                       item.items.map((subItem) => (
-                        <Link
-                          key={subItem.title}
-                          href={subItem.href}
-                          className='flex items-center justify-between'
-                        >
-                          <span className='text-background/75'>
-                            {subItem.title}
-                          </span>
+                        <Link key={subItem.title} href={subItem.href} className='flex items-center justify-between'>
+                          <span className='text-background/75'>{subItem.title}</span>
                         </Link>
                       ))}
                   </div>

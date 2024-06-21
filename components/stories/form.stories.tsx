@@ -1,15 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import { Button } from '@/components/ui/button'
-import {
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-  FormField,
-  FormProps,
-} from '@/components/ui/form'
+import { Form, FormItem, FormLabel, FormControl, FormMessage, FormField, FormProps } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from '@/components/ui/use-toast'

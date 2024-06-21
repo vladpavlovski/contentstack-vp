@@ -14,7 +14,10 @@ const meta: Meta<RadioGroupProps> = {
     (Story) => {
       return (
         <StoryHeader
-          description='A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.'
+          description={
+            'A set of checkable buttons—known as radio buttons—where ' +
+            'no more than one of the buttons can be checked at a time.'
+          }
           slug='radio-group'
         >
           <Story />

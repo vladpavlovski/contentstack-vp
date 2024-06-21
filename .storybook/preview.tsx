@@ -4,11 +4,7 @@ import { themes } from '@storybook/theming'
 import '../styles/globals.css'
 import { ThemeProvider } from '../components/theme/theme-provider'
 import React from 'react'
-import {
-  darkUIStorybook,
-  lightUIStorybook,
-  commonTheme,
-} from './themes-storybook-ui'
+import { darkUIStorybook, lightUIStorybook, commonTheme } from './themes-storybook-ui'
 import { Toaster } from '@/components/ui/sonner'
 
 const preview: Preview = {

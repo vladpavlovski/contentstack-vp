@@ -1,13 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Action } from '@/typescript/action'
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from '@/components/ui/card'
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
 type AdditionalParam = {
@@ -33,23 +27,13 @@ export function CardSection({ cards }: CardSectionProps) {
         {cards?.map((card, index) => (
           <Card key={index}>
             <CardHeader className='flex flex-col space-y-1.5'>
-              {card.title_h3 && (
-                <CardTitle className='text-xl font-semibold'>
-                  {card.title_h3}
-                </CardTitle>
-              )}
-              {card.description && (
-                <CardDescription className='text-base'>
-                  {card.description}
-                </CardDescription>
-              )}
+              {card.title_h3 && <CardTitle className='text-xl font-semibold'>{card.title_h3}</CardTitle>}
+              {card.description && <CardDescription className='text-base'>{card.description}</CardDescription>}
             </CardHeader>
             <CardFooter className='flex items-center justify-end'>
               {card.call_to_action.title && card.call_to_action.href && (
                 <Button asChild>
-                  <Link href={card.call_to_action.href}>
-                    {card.call_to_action.title}
-                  </Link>
+                  <Link href={card.call_to_action.href}>{card.call_to_action.title}</Link>
                 </Button>
               )}
             </CardFooter>

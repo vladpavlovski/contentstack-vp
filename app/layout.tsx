@@ -21,12 +21,7 @@ export default async function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <head />
       <body className={`antialiased`}>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='light'
-          disableTransitionOnChange
-          enableSystem
-        >
+        <ThemeProvider attribute='class' defaultTheme='light' disableTransitionOnChange enableSystem>
           <Header />
           <main>{children}</main>
           <Footer />

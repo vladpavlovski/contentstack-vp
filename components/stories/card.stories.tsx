@@ -1,21 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-} from '@/components/ui/select'
-import {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardProps,
-} from '@/components/ui/card'
+import { Select, SelectTrigger, SelectContent, SelectItem } from '@/components/ui/select'
+import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardProps } from '@/components/ui/card'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<CardProps> = {
@@ -29,9 +16,7 @@ const meta: Meta<CardProps> = {
       <Card {...props} className='w-[22rem]'>
         <CardHeader>
           <CardTitle>Create project</CardTitle>
-          <CardDescription>
-            Deploy your new project in one-click.
-          </CardDescription>
+          <CardDescription>Deploy your new project in one-click.</CardDescription>
         </CardHeader>
         <CardContent>
           <form>

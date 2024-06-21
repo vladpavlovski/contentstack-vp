@@ -14,12 +14,10 @@ export default function Component() {
           </h1>
           <div className='flex items-center gap-4 text-sm text-muted-foreground'>
             <div>
-              <span className='font-medium'>Published:</span>{' '}
-              <time dateTime='2023-06-21'>June 21, 2023</time>
+              <span className='font-medium'>Published:</span> <time dateTime='2023-06-21'>June 21, 2023</time>
             </div>
             <div>
-              <span className='font-medium'>Updated:</span>{' '}
-              <time dateTime='2023-06-21'>June 21, 2023</time>
+              <span className='font-medium'>Updated:</span> <time dateTime='2023-06-21'>June 21, 2023</time>
             </div>
             <div>
               <span className='font-medium'>Reading Time:</span> 8 min
@@ -49,24 +47,21 @@ export default function Component() {
         </div>
         <div className='mt-8'>
           <p>
-            Once upon a time, in a far-off land, there was a very lazy king who
-            spent all day lounging on his throne. One day, his advisors came to
-            him with a problem: the kingdom was running out of money.
+            Once upon a time, in a far-off land, there was a very lazy king who spent all day lounging on his throne.
+            One day, his advisors came to him with a problem: the kingdom was running out of money.
           </p>
           <p>
-            The king thought long and hard, and finally came up with a brilliant
-            plan: he would tax the jokes in the kingdom.
+            The king thought long and hard, and finally came up with a brilliant plan: he would tax the jokes in the
+            kingdom.
           </p>
           <p>
-            Jokester began sneaking into the castle in the middle of the night
-            and leaving jokes all over the place: under the king&apos;s pillow,
-            in his soup, even in the royal toilet. The king was furious, but he
+            Jokester began sneaking into the castle in the middle of the night and leaving jokes all over the place:
+            under the king&apos;s pillow, in his soup, even in the royal toilet. The king was furious, but he
             couldn&apos;t seem to stop Jokester.
           </p>
           <p>
-            And then, one day, the people of the kingdom discovered that the
-            jokes left by Jokester were so funny that they couldn&apos;t help
-            but laugh. And once they started laughing, they couldn&apos;t stop.
+            And then, one day, the people of the kingdom discovered that the jokes left by Jokester were so funny that
+            they couldn&apos;t help but laugh. And once they started laughing, they couldn&apos;t stop.
           </p>
           <figure>
             <img
@@ -78,19 +73,15 @@ export default function Component() {
             />
             <figcaption>Image caption goes here</figcaption>
           </figure>
-          <p>
-            The king&apos;s subjects were not amused. They grumbled and
-            complained, but the king was firm:
-          </p>
+          <p>The king&apos;s subjects were not amused. They grumbled and complained, but the king was firm:</p>
           <ul>
             <li>1st level of puns: 5 gold coins</li>
             <li>2nd level of jokes: 10 gold coins</li>
             <li>3rd level of one-liners : 20 gold coins</li>
           </ul>
           <p>
-            As a result, people stopped telling jokes, and the kingdom fell into
-            a gloom. But there was one person who refused to let the king&apos;s
-            foolishness get him down: a court jester named Jokester.
+            As a result, people stopped telling jokes, and the kingdom fell into a gloom. But there was one person who
+            refused to let the king&apos;s foolishness get him down: a court jester named Jokester.
           </p>
         </div>
         <div className='mt-8'>
@@ -121,16 +112,11 @@ export default function Component() {
           <div>
             <h3 className='text-lg font-medium'>John Doe</h3>
             <p className='text-sm text-muted-foreground'>
-              John Doe is a writer and satirist who has been chronicling the
-              absurdities of the world for over a decade. His work has appeared
-              in various publications, and he is known for his sharp wit and
-              keen observation of human nature.
+              John Doe is a writer and satirist who has been chronicling the absurdities of the world for over a decade.
+              His work has appeared in various publications, and he is known for his sharp wit and keen observation of
+              human nature.
             </p>
-            <Link
-              href='#'
-              className='text-sm font-medium hover:underline'
-              prefetch={false}
-            >
+            <Link href='#' className='text-sm font-medium hover:underline' prefetch={false}>
               View more posts by John Doe
             </Link>
           </div>
@@ -160,53 +146,29 @@ export default function Component() {
           <div className='mt-4 grid grid-cols-2 gap-4'>
             <div className='rounded-md bg-muted p-4'>
               <h3 className='text-lg font-medium'>Humor (12)</h3>
-              <p className='text-sm text-muted-foreground'>
-                Explore the lighter side of life.
-              </p>
-              <Link
-                href='#'
-                className='text-sm font-medium hover:underline'
-                prefetch={false}
-              >
+              <p className='text-sm text-muted-foreground'>Explore the lighter side of life.</p>
+              <Link href='#' className='text-sm font-medium hover:underline' prefetch={false}>
                 View More
               </Link>
             </div>
             <div className='rounded-md bg-muted p-4'>
               <h3 className='text-lg font-medium'>Politics (8)</h3>
-              <p className='text-sm text-muted-foreground'>
-                Dive into the world of political satire.
-              </p>
-              <Link
-                href='#'
-                className='text-sm font-medium hover:underline'
-                prefetch={false}
-              >
+              <p className='text-sm text-muted-foreground'>Dive into the world of political satire.</p>
+              <Link href='#' className='text-sm font-medium hover:underline' prefetch={false}>
                 View More
               </Link>
             </div>
             <div className='rounded-md bg-muted p-4'>
               <h3 className='text-lg font-medium'>History (6)</h3>
-              <p className='text-sm text-muted-foreground'>
-                Uncover the past through humorous lenses.
-              </p>
-              <Link
-                href='#'
-                className='text-sm font-medium hover:underline'
-                prefetch={false}
-              >
+              <p className='text-sm text-muted-foreground'>Uncover the past through humorous lenses.</p>
+              <Link href='#' className='text-sm font-medium hover:underline' prefetch={false}>
                 View More
               </Link>
             </div>
             <div className='rounded-md bg-muted p-4'>
               <h3 className='text-lg font-medium'>Fiction (10)</h3>
-              <p className='text-sm text-muted-foreground'>
-                Dive into imaginative tales and stories.
-              </p>
-              <Link
-                href='#'
-                className='text-sm font-medium hover:underline'
-                prefetch={false}
-              >
+              <p className='text-sm text-muted-foreground'>Dive into imaginative tales and stories.</p>
+              <Link href='#' className='text-sm font-medium hover:underline' prefetch={false}>
                 View More
               </Link>
             </div>
@@ -232,11 +194,7 @@ export default function Component() {
             </Button>
           </div>
           <div className='mt-4'>
-            <Input
-              type='search'
-              placeholder='Search tags...'
-              className='w-full'
-            />
+            <Input type='search' placeholder='Search tags...' className='w-full' />
           </div>
         </div>
         <div>
@@ -255,12 +213,9 @@ export default function Component() {
                 className='aspect-video rounded-md object-cover'
               />
               <div>
-                <h3 className='text-base font-medium'>
-                  The Rise and Fall of the Joke Tax Empire
-                </h3>
+                <h3 className='text-base font-medium'>The Rise and Fall of the Joke Tax Empire</h3>
                 <p className='text-sm text-muted-foreground'>
-                  Exploring the unintended consequences of the king&apos;s
-                  short-sighted policy.
+                  Exploring the unintended consequences of the king&apos;s short-sighted policy.
                 </p>
               </div>
             </Link>
@@ -278,12 +233,10 @@ export default function Component() {
               />
               <div>
                 <h3 className='text-base font-medium'>
-                  The Jokester&apos;s Revenge: How One Man Brought Laughter Back
-                  to the Kingdom
+                  The Jokester&apos;s Revenge: How One Man Brought Laughter Back to the Kingdom
                 </h3>
                 <p className='text-sm text-muted-foreground'>
-                  The inspiring story of how a court jester fought against the
-                  Joke Tax.
+                  The inspiring story of how a court jester fought against the Joke Tax.
                 </p>
               </div>
             </Link>
@@ -300,12 +253,9 @@ export default function Component() {
                 className='aspect-video rounded-md object-cover'
               />
               <div>
-                <h3 className='text-base font-medium'>
-                  The Economic Impact of the Joke Tax: A Cautionary Tale
-                </h3>
+                <h3 className='text-base font-medium'>The Economic Impact of the Joke Tax: A Cautionary Tale</h3>
                 <p className='text-sm text-muted-foreground'>
-                  How the Joke Tax led to the downfall of the kingdom&apos;s
-                  economy.
+                  How the Joke Tax led to the downfall of the kingdom&apos;s economy.
                 </p>
               </div>
             </Link>

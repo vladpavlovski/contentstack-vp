@@ -6,9 +6,7 @@ import { FooterProps, HeaderProps } from '../typescript/layout'
 import { getEntry, getEntryByUrl, getHeader } from '../contentstack-sdk'
 
 const { publicRuntimeConfig } = getConfig()
-const envConfig = process.env.CONTENTSTACK_API_KEY
-  ? process.env
-  : publicRuntimeConfig
+const envConfig = process.env.CONTENTSTACK_API_KEY ? process.env : publicRuntimeConfig
 
 const liveEdit = envConfig.CONTENTSTACK_LIVE_EDIT_TAGS === 'true'
 
@@ -35,8 +33,7 @@ export const getAllEntries = async (): Promise<Page[]> => {
     referenceFieldPath: undefined,
     jsonRtePath: undefined,
   })) as Page[][]
-  liveEdit &&
-    response[0].forEach((entry) => addEditableTags(entry, 'page', true))
+  liveEdit && response[0].forEach((entry) => addEditableTags(entry, 'page', true))
   return response[0]
 }
 
@@ -61,8 +58,7 @@ export const getBlogListRes = async (): Promise<BlogPosts[]> => {
     referenceFieldPath: ['author', 'related_post'],
     jsonRtePath: ['body'],
   })) as BlogPosts[][]
-  liveEdit &&
-    response[0].forEach((entry) => addEditableTags(entry, 'blog_post', true))
+  liveEdit && response[0].forEach((entry) => addEditableTags(entry, 'blog_post', true))
   return response[0]
 }
 

@@ -36,10 +36,7 @@ export const Section = ({ section }: { section: SectionProps }) => {
         </div>
         {section.call_to_action.title && section.call_to_action.href && (
           <Button asChild>
-            <Link
-              href={section.call_to_action.href}
-              {...section.call_to_action.$?.title}
-            >
+            <Link href={section.call_to_action.href} {...section.call_to_action.$?.title}>
               {section.call_to_action.title}
             </Link>
           </Button>
@@ -61,10 +58,7 @@ export const Section = ({ section }: { section: SectionProps }) => {
         <div className='flex flex-col-reverse gap-10 lg:flex-row lg:items-center'>
           {section.image_alignment === 'Left'
             ? [imageContent('key-image'), contentSection('key-contentstection')]
-            : [
-                contentSection('key-contentstection'),
-                imageContent('key-image'),
-              ]}
+            : [contentSection('key-contentstection'), imageContent('key-image')]}
         </div>
       </div>
     </div>

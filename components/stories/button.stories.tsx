@@ -47,14 +47,7 @@ const meta: Meta<ButtonProps> = {
     },
     variant: {
       control: { type: 'select' },
-      options: [
-        'default',
-        'destructive',
-        'ghost',
-        'link',
-        'outline',
-        'secondary',
-      ] satisfies ButtonVariant[],
+      options: ['default', 'destructive', 'ghost', 'link', 'outline', 'secondary'] satisfies ButtonVariant[],
       description: 'The variant of the button.',
       table: {
         type: { summary: 'string' },

@@ -22,7 +22,9 @@
   "rules": {
     "react/prop-types": 0,
     "@next/next/no-img-element": "off",
-    "no-console": "error"
+    "no-console": "error",
+    "react/jsx-indent": ["error", 2],
+    "max-len": ["error", { "code": 120 }]
   },
   "ignorePatterns": ["/public"]
 }

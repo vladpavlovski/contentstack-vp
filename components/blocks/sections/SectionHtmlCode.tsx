@@ -22,26 +22,18 @@ export function SectionHtmlCode({ embedCode }: { embedCode: ObjectProps }) {
   const isLeftAlignment = embedCode.html_code_alignment === 'Left'
 
   return (
-    <div
-      className={`max-width ${isLeftAlignment ? 'contact-page-section' : 'contact-maps-section'}`}
-    >
+    <div className={`max-width ${isLeftAlignment ? 'contact-page-section' : 'contact-maps-section'}`}>
       {isLeftAlignment ? (
         <>
           <div className='contact-page-content'>
-            {embedCode.title && (
-              <h1 {...(embedCode.$?.title as {})}>{embedCode.title}</h1>
-            )}
+            {embedCode.title && <h1 {...(embedCode.$?.title as {})}>{embedCode.title}</h1>}
             {typeof embedCode.description === 'string' && (
-              <div {...(embedCode.$?.description as {})}>
-                {parse(embedCode.description)}
-              </div>
+              <div {...(embedCode.$?.description as {})}>{parse(embedCode.description)}</div>
             )}
           </div>
           <div className='contact-page-form'>
             {typeof embedCode.html_code === 'string' && (
-              <div {...(embedCode.$?.html_code as {})}>
-                {parse(embedCode.html_code)}
-              </div>
+              <div {...(embedCode.$?.html_code as {})}>{parse(embedCode.html_code)}</div>
             )}
           </div>
         </>
@@ -49,17 +41,13 @@ export function SectionHtmlCode({ embedCode }: { embedCode: ObjectProps }) {
         <>
           <div className='maps-details'>
             {typeof embedCode.html_code === 'string' && (
-              <div {...(embedCode.$?.html_code as {})}>
-                {parse(embedCode.html_code)}
-              </div>
+              <div {...(embedCode.$?.html_code as {})}>{parse(embedCode.html_code)}</div>
             )}
           </div>
           <div className='contact-maps-content'>
             {embedCode.title && <h2>{embedCode.title}</h2>}
             {typeof embedCode.description === 'string' && (
-              <div {...(embedCode.$?.description as {})}>
-                {parse(embedCode.description)}
-              </div>
+              <div {...(embedCode.$?.description as {})}>{parse(embedCode.description)}</div>
             )}
           </div>
         </>

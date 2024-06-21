@@ -19,11 +19,7 @@ export const StoryHeader = ({
           Radix
         </a>
         <span> | </span>
-        <a
-          href={`${BASE_DOC_LINK}${slug}#api-reference`}
-          target='_blank'
-          rel='noreferrer'
-        >
+        <a href={`${BASE_DOC_LINK}${slug}#api-reference`} target='_blank' rel='noreferrer'>
           API Reference
         </a>
       </div>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import parse from 'html-react-parser'
 import { Image, Action } from '@/typescript/action'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/styles/utils'
 
 type AdditionalParam = {
   title: string
@@ -42,7 +43,11 @@ export function SectionBucket({ section }: { section: BucketProps }) {
                 </h2>
               )}
               {section.description && (
-                <p className='max-w-xl text-left text-lg leading-relaxed tracking-tight text-muted-foreground lg:max-w-lg'>
+                <p
+                  className={cn(
+                    'max-w-xl text-left text-lg leading-relaxed tracking-tight text-muted-foreground lg:max-w-lg'
+                  )}
+                >
                   {section.description}
                 </p>
               )}
@@ -52,30 +57,15 @@ export function SectionBucket({ section }: { section: BucketProps }) {
             {section.buckets?.map((bucket, index) => (
               <div className='flex flex-col gap-2' key={index}>
                 {bucket.icon && (
-                  <img
-                    src={bucket.icon.url}
-                    alt='bucket icon'
-                    className='mb-2 aspect-video rounded-md bg-muted'
-                  />
+                  <img src={bucket.icon.url} alt='bucket icon' className='mb-2 aspect-video rounded-md bg-muted' />
                 )}
-                {bucket.title_h3 && (
-                  <h3 className='text-xl tracking-tight'>{bucket.title_h3}</h3>
-                )}
+                {bucket.title_h3 && <h3 className='text-xl tracking-tight'>{bucket.title_h3}</h3>}
                 {typeof bucket.description === 'string' && (
-                  <div className='text-base text-muted-foreground'>
-                    {parse(bucket.description)}
-                  </div>
+                  <div className='text-base text-muted-foreground'>{parse(bucket.description)}</div>
                 )}
                 {bucket.call_to_action?.title && (
                   <Button asChild>
-                    <Link
-                      href={
-                        bucket.call_to_action.href
-                          ? bucket.call_to_action.href
-                          : '#'
-                      }
-                      className='text-primary'
-                    >
+                    <Link href={bucket.call_to_action.href ? bucket.call_to_action.href : '#'} className='text-primary'>
                       {`${bucket.call_to_action.title} -->`}
                     </Link>
                   </Button>

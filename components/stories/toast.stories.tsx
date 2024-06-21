@@ -17,10 +17,7 @@ const meta: Meta<ToasterStoryProps> = {
   decorators: [
     (Story) => {
       return (
-        <StoryHeader
-          description='A succinct message that is displayed temporarily.'
-          slug='toast'
-        >
+        <StoryHeader description='A succinct message that is displayed temporarily.' slug='toast'>
           <Story />
         </StoryHeader>
       )

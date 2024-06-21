@@ -70,11 +70,7 @@ export const Heading = Object.assign(
     ref
   ) {
     return (
-      <Slot
-        {...props}
-        ref={ref}
-        className={HeadingStyles({ className, variant })}
-      >
+      <Slot {...props} ref={ref} className={HeadingStyles({ className, variant })}>
         {asChild ? children : <Tag>{children}</Tag>}
       </Slot>
     )

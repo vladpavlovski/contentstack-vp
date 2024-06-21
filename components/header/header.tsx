@@ -22,11 +22,7 @@ export default async function Header() {
         <div className='my-5'>
           {headerData ? (
             <Link href='/' title='Rapid7'>
-              <img
-                src={headerData.logo.url}
-                alt={headerData.title}
-                title={headerData.title}
-              />
+              <img src={headerData.logo.url} alt={headerData.title} title={headerData.title} />
             </Link>
           ) : (
             <Skeleton width={150} />

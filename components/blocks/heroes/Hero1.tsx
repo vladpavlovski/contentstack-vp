@@ -66,11 +66,7 @@ export const Hero1 = ({ banner }: BannerProps) => (
         </div>
         <div className='aspect-square rounded-md bg-muted'>
           {banner.banner_image && (
-            <img
-              alt={banner.banner_image.filename}
-              src={banner.banner_image.url}
-              className='flex justify-center'
-            />
+            <img alt={banner.banner_image.filename} src={banner.banner_image.url} className='flex justify-center' />
           )}
         </div>
       </div>

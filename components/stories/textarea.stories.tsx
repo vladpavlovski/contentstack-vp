@@ -25,11 +25,7 @@ export const WithLabel: Story = {
     return (
       <div className='space-y-2'>
         <Label htmlFor='message'>Your message</Label>
-        <Textarea
-          {...props}
-          placeholder='Type your message here.'
-          id='message'
-        />
+        <Textarea {...props} placeholder='Type your message here.' id='message' />
       </div>
     )
   },
