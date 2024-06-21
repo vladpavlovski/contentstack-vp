@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getHeaderRes } from '../../helper'
+import { getHeaderRes } from '../../api'
 import Skeleton from 'react-loading-skeleton'
 import { Menu } from './menu'
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getFooterRes } from '@/helper'
+import { getFooterRes } from '@/api'
 import Skeleton from 'react-loading-skeleton'
 
 export const Footer = async () => {

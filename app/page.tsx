@@ -1,5 +1,5 @@
 import RenderComponents from '@/components/renderer/RenderComponents'
-import { getPageRes } from '../helper'
+import { getPageRes } from '../api'
 import Skeleton from 'react-loading-skeleton'
 
 async function fetchData() {
