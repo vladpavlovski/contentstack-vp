@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { HeaderProps } from '../../typescript/layout'
 import Link from 'next/link'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Menu({ data }: { data: HeaderProps }) {
   const { navigation_menu } = data
@@ -42,6 +43,7 @@ export function Menu({ data }: { data: HeaderProps }) {
             </Link>
           )
         })}
+        <LanguageSwitcher />
       </NavigationMenuList>
     </NavigationMenu>
   )

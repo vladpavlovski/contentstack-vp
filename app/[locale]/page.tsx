@@ -1,10 +1,11 @@
 import RenderComponents from '@/components/renderer/RenderComponents'
-import { getPageRes } from '../../api'
+import { getPageRes } from '@/api'
 import Skeleton from 'react-loading-skeleton'
+import { Locale } from '@/locales/i18n-config'
 
-async function fetchData(entryUrl: string) {
+async function fetchData() {
   try {
-    const entryRes = await getPageRes(`/${entryUrl}`)
+    const entryRes = await getPageRes('/')
     if (!entryRes) throw new Error('Status code 404')
     return entryRes
   } catch (error) {
@@ -13,25 +14,17 @@ async function fetchData(entryUrl: string) {
   }
 }
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    page: string
-  }
-}) {
-  const { page } = params
+export default async function Page({ params: { locale } }: { params: { locale: Locale } }) {
+  const entry = await fetchData()
 
-  const entry = await fetchData(page)
+  if (!entry) return <Skeleton count={3} height={300} />
 
-  return entry?.page_components ? (
+  return (
     <RenderComponents
       pageComponents={entry.page_components}
       contentTypeUid='page'
       entryUid={entry.uid}
-      locale={entry.locale}
+      locale={locale}
     />
-  ) : (
-    <Skeleton count={3} height={300} />
   )
 }

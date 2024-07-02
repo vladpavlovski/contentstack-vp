@@ -47,7 +47,7 @@ export const Section = ({ section }: { section: SectionProps }) => {
 
   function imageContent(key: any) {
     return (
-      <div className='aspect-video h-full w-full flex-1 rounded-md bg-muted'>
+      <div key={key} className='aspect-video h-full w-full flex-1 rounded-md bg-muted'>
         <img src={section.image.url} alt={section.image.filename} key={key} />
       </div>
     )

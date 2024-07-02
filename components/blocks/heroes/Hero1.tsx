@@ -18,11 +18,7 @@ type Banner = {
   $: AdditionalParam
 }
 
-type BannerProps = {
-  banner: Banner
-}
-
-export const Hero1 = ({ banner }: BannerProps) => (
+export const Hero1 = ({ banner }: { banner: Banner }) => (
   <div
     className='w-full py-20 lg:py-40'
     style={{

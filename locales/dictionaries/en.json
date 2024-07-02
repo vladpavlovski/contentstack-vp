@@ -1,0 +1,9 @@
+{
+  "hello_world": "Hello {param}!",
+  "LanguageSwitcher": {
+    "title": "Select Language",
+    "en": "English",
+    "de": "German",
+    "ja": "Japanese"
+  }
+}

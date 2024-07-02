@@ -1,6 +1,9 @@
 const withPWA = require('next-pwa')({
   dest: 'public',
 })
+const createNextIntlPlugin = require('next-intl/plugin')
+
+const withNextIntl = createNextIntlPlugin('./locales/i18n-config.ts')
 
 const config = {
   publicRuntimeConfig: {
@@ -19,4 +22,4 @@ const config = {
   },
   experimental: { largePageDataBytes: 128 * 100000 },
 }
-module.exports = process.env.NODE_ENV === 'development' ? config : withPWA(config)
+module.exports = process.env.NODE_ENV === 'development' ? withNextIntl(config) : withPWA(withNextIntl(config))
